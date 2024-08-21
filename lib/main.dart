@@ -16,6 +16,7 @@ class DayTask extends StatelessWidget {
     return GetMaterialApp(
       title: 'DayTask',
       theme: ThemeData(
+        scaffoldBackgroundColor:Color(0xff263238),
        textTheme: GoogleFonts.interTextTheme(),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
