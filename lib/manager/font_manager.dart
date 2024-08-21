@@ -36,5 +36,5 @@ final TextStyle f12w500Black = const TextStyle(
         final TextStyle f22w600White = const TextStyle(
       fontSize: 22, fontWeight: FontWeight.w600, color: Colors.white);
 
-  final TextStyle f10w0Grey = const TextStyle(fontSize: 10, color: Colors.grey);
+  final TextStyle f11w500White = const TextStyle(fontSize: 11, color: Colors.white);
 }

@@ -1,4 +1,5 @@
 import 'package:day_task/manager/color_manager.dart';
+import 'package:day_task/presentation/bottom_nav_screen/bottom_nav_screen.dart';
 import 'package:day_task/presentation/login_screen/login_screen.dart';
 import 'package:day_task/presentation/registration_screen/registration_screen.dart';
 import 'package:day_task/presentation/welcome_screen/welcome_screen.dart';
@@ -19,12 +20,12 @@ class DayTask extends StatelessWidget {
     return GetMaterialApp(
       title: 'DayTask',
       theme: ThemeData(
-        scaffoldBackgroundColor:Color(0xff263238),
+        scaffoldBackgroundColor:Color(0xff212832),
        textTheme: GoogleFonts.interTextTheme(),
         colorScheme: ColorScheme.fromSeed(seedColor:appColors.primary),
         useMaterial3: true,
       ),
-      home: RegistrationScreen()
+      home: BottomNavScreen()
     );
   }
 }
