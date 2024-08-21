@@ -4,9 +4,8 @@ import 'package:day_task/manager/image_manger.dart';
 import 'package:day_task/manager/space_manager.dart';
 import 'package:day_task/utils/dimensions.dart';
 import 'package:day_task/widgets/primary_button.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});

@@ -4,5 +4,5 @@ AppColors appColors = AppColors();
 
 class AppColors {
   Color primary = const  Color(0xffFED36A);
-
+  Color fontGrey=const Color(0xff8CAAB9);
 }
