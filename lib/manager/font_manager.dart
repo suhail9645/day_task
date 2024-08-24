@@ -8,6 +8,8 @@ class AppFont {
       color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600);
 final TextStyle f12w500Black = const TextStyle(
       fontSize: 12, fontWeight: FontWeight.w500, color: Colors.black);
+      final TextStyle f12w600Black = const TextStyle(
+      fontSize: 12, fontWeight: FontWeight.w600, color: Colors.black);
   final TextStyle f14w500Black = const TextStyle(
       fontSize: 14, fontWeight: FontWeight.w500, color: Colors.black);
 
@@ -37,4 +39,5 @@ final TextStyle f12w500Black = const TextStyle(
       fontSize: 22, fontWeight: FontWeight.w600, color: Colors.white);
 
   final TextStyle f11w500White = const TextStyle(fontSize: 11, color: Colors.white);
+    final TextStyle f10w500Black = const TextStyle(fontSize: 10, color: Colors.black);
 }
