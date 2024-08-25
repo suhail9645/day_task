@@ -1,6 +1,7 @@
 import 'package:day_task/manager/color_manager.dart';
 import 'package:day_task/manager/font_manager.dart';
 import 'package:day_task/manager/space_manager.dart';
+import 'package:day_task/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatelessWidget {
@@ -8,18 +9,9 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: Container(
-        height: 45,
-        width: 140,
-        decoration: BoxDecoration(
-          color: appColors.primary,
-          borderRadius: BorderRadius.circular(2)
-        ),
-        child: Center(child: Text('New Chat',style: appFont.f14w600Black,)),
-      ),
       body: SafeArea(
           child: Padding(
-        padding:const EdgeInsets.symmetric(horizontal: 15),
+        padding: EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           children: [
             Row(
@@ -31,9 +23,31 @@ class ChatScreen extends StatelessWidget {
                       Icons.arrow_back,
                       color: Colors.white,
                     )),
-                Text(
-                  'Messages',
-                  style: appFont.f18w600White,
+                SizedBox(
+                  child: Row(
+                    children: [
+                      const CircleAvatar(
+                        radius: 20,
+                        backgroundImage: NetworkImage(
+                            'https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8'),
+                      ),
+                      appSpaces.spaceForWidth10,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Olivia John',
+                            style: appFont.f14w600White,
+                          ),
+                          Text(
+                            'Online',
+                            style: appFont.f12w500Black
+                                .copyWith(color: const Color(0xffB8B8B8)),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 ),
                 IconButton(
                     onPressed: () {},
@@ -44,56 +58,79 @@ class ChatScreen extends StatelessWidget {
               ],
             ),
             appSpaces.spaceForHeight10,
-            Row(
-              children: List.generate(
-                2,
-                (index) {
-                  List<String> titles = ['Chat', 'Groups'];
-
-                  return Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 8),
-                      height: 45,
-                      decoration: BoxDecoration(
-                          color: index == 0
-                              ? appColors.primary
-                              : const Color(0xff263238),
-                          borderRadius: BorderRadius.circular(2)),
-                      child: Center(
-                        child: Text(
-                          titles[index],
-                          style: appFont.f14w600Black.copyWith(
-                              color: index == 0 ? Colors.black : Colors.white),
-                        ),
+            Expanded(child: ListView(
+              children: List.generate(7, (index) {
+                List<String>messages=['Hi Please check the new Task','Ok, Let me check','Got it Tanks',"I will share screenshots and Documents after complete.",'Please upload screenshots','','Good Great Work',];
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 9),
+                  child: Row(
+                    mainAxisAlignment: index==0||index==4||index==6?MainAxisAlignment.start:MainAxisAlignment.end,
+                    children: [
+                    Container(
+                      height: index==5?160:null,
+                      width: index==5?210:null,
+                      padding:const EdgeInsets.symmetric(horizontal: 10,vertical: 8),
+                      
+                      constraints: BoxConstraints(
+                        maxWidth: screenWidth(context)-100,
+                        minWidth: 100
                       ),
-                    ),
-                  );
-                },
-              ),
-            ),
-            appSpaces.spaceForHeight20,
-            Expanded(child: ListView.separated(itemBuilder: (context, index) {
-               List<String> images = [
-                                            'https://w0.peakpx.com/wallpaper/107/46/HD-wallpaper-best-pose-for-profile-for-men-profile-pose-men-best-glasses.jpg',
-                                            'https://pics.craiyon.com/2023-07-15/dc2ec5a571974417a5551420a4fb0587.webp',
-                                            'https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8',
-                                            'https://www.befunky.com/images/wp/wp-2021-01-linkedin-profile-picture-after.jpg?auto=avif,webp&format=jpg&width=944',
-                                           'https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8',
-                                            'https://www.befunky.com/images/wp/wp-2021-01-linkedin-profile-picture-after.jpg?auto=avif,webp&format=jpg&width=944'
-                                          
-                                          ];
-              return ListTile(
-                leading: CircleAvatar(
-                  backgroundImage: NetworkImage(images[index]),
-                ),
-                title: Text('Olivia watson',style: appFont.f14w600White,),
-                subtitle: Text('Hi please check task list ..',style: appFont.f12w500Black.copyWith(color:const Color(0xffB8B8B8)),),
-                trailing: index<=2?Icon(Icons.circle,size: 15,color: appColors.primary,):Text('Yesterday',style: appFont.f11w500White,),
-              );
-            }, separatorBuilder: (context, index) => appSpaces.spaceForHeight6, itemCount: 6))
+                      decoration: BoxDecoration(
+                        color:index==0||index==4||index==6?appColors.secondaryGrey: appColors.primary,
+                        borderRadius: BorderRadius.circular(2),
+                      image:index==5 ?const DecorationImage(image: NetworkImage('https://i.ytimg.com/vi/QnDit2JQTdg/sddefault.jpg'),fit: BoxFit.fill): null
+                      ),
+                      child: Text(messages[index],style: appFont.f12w600Black.copyWith(color: index==0||index==4||index==6?Colors.white:Colors.black),),
+                    )
+                  ],),
+                );
+              },),
+            ))
           ],
         ),
       )),
+      bottomNavigationBar: SizedBox(
+        height: 100,
+        width: double.infinity,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          child: Row(
+            children: [
+              Expanded(
+                  flex: 5,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    margin: const EdgeInsets.only(right: 10),
+                    height: 55,
+                    decoration: BoxDecoration(color: appColors.secondaryGrey),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.widgets_outlined,
+                          color: appColors.primary,
+                        ),
+                        appSpaces.spaceForWidth10,
+                        Text(
+                          'Type a message',
+                          style: appFont.f14w500Black
+                              .copyWith(color: appColors.fontGrey),
+                        ),
+                        const Spacer(),
+                        Icon(Icons.send_outlined,color: appColors.primary,)
+                      ],
+                    ),
+                  )),
+              Expanded(
+                  flex: 1,
+                  child: Container(
+                    height: 55,
+                    decoration: BoxDecoration(color: appColors.secondaryGrey),
+                    child: Center(child: Icon(Icons.mic_rounded,color: appColors.primary,),),
+                  ))
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

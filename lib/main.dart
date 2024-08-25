@@ -1,6 +1,7 @@
 import 'package:day_task/manager/color_manager.dart';
 import 'package:day_task/presentation/bottom_nav_screen/bottom_nav_screen.dart';
 import 'package:day_task/presentation/chat_screen/chat_screen.dart';
+import 'package:day_task/presentation/messages_screen/messages_screen.dart';
 import 'package:day_task/presentation/home_screen/home_screen.dart';
 import 'package:day_task/presentation/login_screen/login_screen.dart';
 import 'package:day_task/presentation/registration_screen/registration_screen.dart';

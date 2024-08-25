@@ -6,4 +6,5 @@ class AppColors {
   Color primary = const  Color(0xffFED36A);
   Color fontGrey=const Color(0xff8CAAB9);
   Color primaryGrey=const Color(0xff6F8793);
+  Color secondaryGrey= const Color(0xff263238);
 }
