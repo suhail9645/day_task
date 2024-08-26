@@ -5,6 +5,7 @@ import 'package:day_task/presentation/messages_screen/messages_screen.dart';
 import 'package:day_task/presentation/home_screen/home_screen.dart';
 import 'package:day_task/presentation/login_screen/login_screen.dart';
 import 'package:day_task/presentation/registration_screen/registration_screen.dart';
+import 'package:day_task/presentation/shedule_screen/schedule_screen.dart';
 import 'package:day_task/presentation/task_details_screen/task_details_screen.dart';
 import 'package:day_task/presentation/welcome_screen/welcome_screen.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,6 @@ class DayTask extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor:appColors.primary),
         useMaterial3: true,
       ),
-      home: ChatScreen()
-    );
+      home: ScheduleScreen()    );
   }
 }
